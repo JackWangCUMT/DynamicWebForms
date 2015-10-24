@@ -46,6 +46,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AlpacaForms\AlpacaForms.csproj">
@@ -56,9 +63,9 @@
       <Project>{2ce94539-a75b-405f-aab0-82610a7a695a}</Project>
       <Name>DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DWF_WebService\DWF_Web.csproj">
+    <ProjectReference Include="..\DWF_WebService\DynamicWebForms_Web.csproj">
       <Project>{9ce3e5c3-2109-414d-a992-0ec30a17f03b}</Project>
-      <Name>DWF_Web</Name>
+      <Name>DynamicWebForms_Web</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
