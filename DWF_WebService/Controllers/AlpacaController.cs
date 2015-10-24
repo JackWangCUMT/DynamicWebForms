@@ -25,6 +25,16 @@ namespace DWF_WebService.Controllers
             obj.properties.name = new AlpacaForms.Questions.TextInput();
             obj.properties.name.title = "Who are you?";
 
+            var test = new AlpacaForms.Questions.MultipleChoice();
+            test.title = "Choose a ranking";
+            test.@enum.Add("Great");
+            test.@enum.Add("Not so great");
+            test.@enum.Add("Shit");
+
+
+            var dictionary = (IDictionary<string, object>)obj.properties; 
+
+            dictionary.Add("ranking", test);
 
 
             return Ok(obj);
