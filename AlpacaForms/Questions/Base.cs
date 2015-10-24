@@ -8,7 +8,9 @@ namespace AlpacaForms.Questions
 {
     public class Base
     {
-        protected string type { get; set; }
+        public string type { get; set; }
         public string title { get; set; }
+        public bool required { get; set; }
+        public string @default { get; set; }
     }
 }

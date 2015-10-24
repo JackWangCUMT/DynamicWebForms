@@ -8,6 +8,7 @@
 
 function drawForm(data) {
     $("#form1").alpaca({
-        "schema": data
+        "schema": data,
+        "options": data,
     });
 }
