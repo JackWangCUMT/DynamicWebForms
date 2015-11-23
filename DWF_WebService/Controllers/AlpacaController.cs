@@ -9,7 +9,8 @@ using System.Reflection;
 using System.IO;
 using System.Dynamic;
 using AlpacaForms;
-
+using System.Web.Mvc;
+using System.Web.Mvc.Ajax;
 
 namespace DWF_WebService.Controllers
 {
@@ -23,10 +24,11 @@ namespace DWF_WebService.Controllers
 
             obj.properties = new ExpandoObject(); //the form data
             obj.fields = new ExpandoObject(); //the options (set as each control is created)
-            obj.form = new AlpacaForms.Config.Form(); 
 
-            obj.fields.buttons = new AlpacaForms.Config.Buttons();
-
+            //buttons and submit config           
+            obj.form = new AlpacaForms.Config.Form();
+            obj.form.attributes.action = "www.google.com";
+            obj.form.attributes.method = "post";
 
             //text input
             obj.properties.name = new AlpacaForms.Questions.TextInput();
@@ -53,6 +55,19 @@ namespace DWF_WebService.Controllers
             test2.@enum.Add("Arsenal");
 
             dictionary.Add("slider", test2);
+            
+            //number only
+            obj.properties.age = new AlpacaForms.Questions.NumberInput();
+            obj.properties.age.title = "Age";
+            obj.properties.age.description = "How old are you?";
+            
+            //file upload
+            obj.properties.fileUpload = new AlpacaForms.Questions.TextInput();
+            obj.properties.fileUpload.title = "Upload your file here";
+            obj.properties.fileUpload.format = "uri";
+
+            obj.fields.fileUpload = new ExpandoObject();
+            obj.fields.fileUpload.type = "file";
 
             //yes, no
             obj.properties.member = new  AlpacaForms.Questions.Boolean();

@@ -12,5 +12,7 @@ namespace AlpacaForms.Questions
         public string title { get; set; }
         public bool required { get; set; }
         public string @default { get; set; }
+        public string description { get; set; }
+        public string format { get; set; }
     }
 }
