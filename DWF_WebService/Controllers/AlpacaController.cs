@@ -60,6 +60,7 @@ namespace DWF_WebService.Controllers
             obj.properties.age = new AlpacaForms.Questions.NumberInput();
             obj.properties.age.title = "Age";
             obj.properties.age.description = "How old are you?";
+            obj.properties.age.required = true;
             
             //file upload
             obj.properties.fileUpload = new AlpacaForms.Questions.TextInput();
