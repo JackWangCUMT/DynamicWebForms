@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using AlpacaForms;
 using AlpacaForms.DAL;
+using AlpacaForms.Questions;
+using AlpacaForms.Config;
 using System.Data;
 
 namespace DynamicWebForms
@@ -16,6 +18,11 @@ namespace DynamicWebForms
 
             Db db = new Db();
             DataSet ds = db.ReturnFormData(1);
+
+            AlpacaFactory factory = new AlpacaFactory();
+
+            factory.ReturnForm(ds);
+
             var x = "x";
         }
     }

@@ -18,5 +18,6 @@ namespace AlpacaForms.Config
     {
         public string action { get; set; }
         public string method { get; set; }
+
     }
 }

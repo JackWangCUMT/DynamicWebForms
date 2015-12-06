@@ -9,8 +9,11 @@ using System.Reflection;
 using System.IO;
 using System.Dynamic;
 using AlpacaForms;
+using AlpacaForms.DAL;
+using AlpacaForms.Config;
 using System.Web.Mvc;
 using System.Web.Mvc.Ajax;
+using System.Data;
 
 namespace DWF_WebService.Controllers
 {
@@ -95,10 +98,27 @@ namespace DWF_WebService.Controllers
 
         public IHttpActionResult GetForm(int id)
         {
-            var x = "x";
+            try
+            {
+                DataSet ds = new Db().ReturnFormData(1);
+           
+                if(ds.Tables.Count == 3)
+                {
+                    AlpacaFactory frm = new AlpacaFactory();
+                    dynamic obj = frm.ReturnForm(ds);
+                    return Ok(obj);
+                }
+                else
+                {
+                    return InternalServerError(new Exception("Database output incorrect"));
+                }
+            }
+            catch(Exception ex)
+            {
+                return InternalServerError(ex);
+            }
 
-            return Ok();
-        }
+        }//GetForm
 
     }
 }

@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config\AlpacaFactory.cs" />
     <Compile Include="Config\Attributes.cs" />
     <Compile Include="Config\Buttons.cs" />
     <Compile Include="Config\Form.cs" />
