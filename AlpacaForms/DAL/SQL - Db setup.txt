@@ -1,0 +1,132 @@
+
+CREATE TABLE [dbo].[alpacaControlType](
+	[controlId] [int] NOT NULL,
+	[name] [varchar](max) NULL,
+	[info] [varchar](max) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[controlId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+
+
+
+
+
+CREATE TABLE [dbo].[formHeader](
+	[formId] [int] NOT NULL,
+	[name] [varchar](max) NULL,
+	[title] [varchar](max) NULL,
+	[actionUrl] [varchar](max) NULL,
+	[actionType] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[formId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+
+
+
+
+CREATE TABLE [dbo].[formQuestionEnums](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[formQuestionId] [int] NULL,
+	[selectionName] [varchar](max) NULL,
+	[sortOrder] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[formQuestionEnums]  WITH CHECK ADD FOREIGN KEY([formQuestionId])
+REFERENCES [dbo].[formQuestions] ([formQuestionId])
+GO
+
+
+
+CREATE TABLE [dbo].[formQuestions](
+	[formQuestionId] [int] IDENTITY(1,1) NOT NULL,
+	[formId] [int] NULL,
+	[controlId] [int] NULL,
+	[title] [varchar](max) NULL,
+	[isRequired] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[formQuestionId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[formQuestions]  WITH CHECK ADD FOREIGN KEY([controlId])
+REFERENCES [dbo].[alpacaControlType] ([controlId])
+GO
+
+ALTER TABLE [dbo].[formQuestions]  WITH CHECK ADD FOREIGN KEY([formId])
+REFERENCES [dbo].[formHeader] ([formId])
+GO
+
+
+
+
+
+
+
+
+CREATE PROCEDURE [dbo].[returnFormHeader]
+
+	@formId int
+
+AS
+
+	SELECT name, title, actionurl, actionType FROM dbo.formHeader
+
+
+	
+	
+	
+	
+CREATE PROCEDURE [dbo].[returnFormQuestionEnums]
+
+	@formId int
+
+AS
+
+SELECT q.formQuestionId, e.id, e.selectionName, e.sortOrder
+FROM dbo.formQuestions q
+INNER JOIN dbo.formQuestionEnums e ON e.formQuestionId = q.formQuestionId
+WHERE q.formId = @formId
+
+
+
+
+
+CREATE PROCEDURE [dbo].[returnFormQuestions]
+
+	@formId int
+
+AS
+
+	SELECT q.formQuestionid, q.title, q.isRequired, typ.controlId, typ.name
+	FROM dbo.formQuestions q
+	INNER JOIN dbo.alpacaControlType typ ON typ.controlId = q.controlId
+	WHERE q.formId = @formId
+
+
+
+

@@ -59,10 +59,6 @@
       <Project>{9ee28e5b-dc62-4b11-89a4-bcb434f70357}</Project>
       <Name>AlpacaForms</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{2ce94539-a75b-405f-aab0-82610a7a695a}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DWF_WebService\DynamicWebForms_Web.csproj">
       <Project>{9ce3e5c3-2109-414d-a992-0ec30a17f03b}</Project>
       <Name>DynamicWebForms_Web</Name>

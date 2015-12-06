@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,6 +43,7 @@
     <Compile Include="Config\Attributes.cs" />
     <Compile Include="Config\Buttons.cs" />
     <Compile Include="Config\Form.cs" />
+    <Compile Include="DAL\Db.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Questions\Base.cs" />
     <Compile Include="Questions\Boolean.cs" />
@@ -50,6 +52,12 @@
     <Compile Include="Questions\NumberInput.cs" />
     <Compile Include="Questions\TextAreaInput.cs" />
     <Compile Include="Questions\TextInput.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DAL\SQL - Db setup.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

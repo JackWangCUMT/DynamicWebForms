@@ -27,7 +27,7 @@ namespace DWF_WebService.Controllers
 
             //buttons and submit config           
             obj.form = new AlpacaForms.Config.Form();
-            obj.form.attributes.action = "www.google.com";
+            obj.form.attributes.action = "api/FormPost";
             obj.form.attributes.method = "post";
 
             //text input
@@ -86,8 +86,19 @@ namespace DWF_WebService.Controllers
             obj.fields.comments.type = "textarea";
             obj.fields.comments.placeholder = "Some text here";
 
+            //do the layout
+           // obj.layout = new ExpandoObject();
+            //obj.layout.template = "../Views/header.html";
 
             return Ok(obj);
         }
+
+        public IHttpActionResult GetForm(int id)
+        {
+            var x = "x";
+
+            return Ok();
+        }
+
     }
 }
