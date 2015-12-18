@@ -34,7 +34,7 @@ namespace AlpacaForms.DAL
             ds.Tables.Add(ReturnFormHeader(p));
             ds.Tables.Add(ReturnFormQuestions(p));
             ds.Tables.Add(ReturnFormQuestionEnums(p));
-
+            ds.Tables.Add(ReturnFormQuestionOptions(p));
             con.Close();
             con.Dispose();
 
@@ -59,6 +59,13 @@ namespace AlpacaForms.DAL
         {
             DataTable dt = DataTableFromProc("returnFormQuestionEnums", formId);
             dt.TableName = "questionEnums";
+            return dt;
+        }
+
+        public DataTable ReturnFormQuestionOptions(SqlParameter formId)
+        {
+            DataTable dt = DataTableFromProc("returnFormQuestionOptions", formId);
+            dt.TableName = "questionOptions";
             return dt;
         }
       

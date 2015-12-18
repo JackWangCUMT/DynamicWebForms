@@ -52,5 +52,16 @@ namespace AlpacaForms.Config
             attributes = new Attributes();
         }
 
+        public Form(DataRow dr)
+        {
+            if (dr["formButtons"].ToString().StringToBool())
+            {
+                buttons = new Buttons();
+            }
+
+            attributes = new Attributes();
+        }
+
+
     }
 }

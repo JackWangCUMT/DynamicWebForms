@@ -8,6 +8,7 @@ namespace AlpacaForms.Questions
 {
     public class FileUpload : Base
     {
-        public FileUpload() { type = "file";  }
+        public string format { get; set; }
+        public FileUpload() { type = "file"; format = "uri"; }
     }
 }

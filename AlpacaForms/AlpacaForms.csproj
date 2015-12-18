@@ -45,9 +45,16 @@
     <Compile Include="Config\Buttons.cs" />
     <Compile Include="Config\Form.cs" />
     <Compile Include="DAL\Db.cs" />
+    <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="Options\DisabledOption.cs" />
+    <Compile Include="Options\FileUploadOption.cs" />
+    <Compile Include="Options\HiddenOption.cs" />
+    <Compile Include="Options\LabelOption.cs" />
+    <Compile Include="Options\TextInputOption.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Questions\Base.cs" />
-    <Compile Include="Questions\Boolean.cs" />
+    <Compile Include="Options\BaseOptions.cs" />
+    <Compile Include="Questions\YesNo.cs" />
     <Compile Include="Questions\FileUpload.cs" />
     <Compile Include="Questions\MultipleChoice.cs" />
     <Compile Include="Questions\NumberInput.cs" />

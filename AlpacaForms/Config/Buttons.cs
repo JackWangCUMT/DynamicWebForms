@@ -14,8 +14,8 @@ namespace AlpacaForms.Config
 
         public Buttons()
         {
-            submit = new Object();
-            reset = new Object();
+            submit = new Object(); 
+            reset = new Object(); 
         }
     }
 }

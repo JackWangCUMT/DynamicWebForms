@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace AlpacaForms.Questions
 {
-    public class Boolean : Base
+    public class YesNo : Base
     {
-        public string description { get; set; }
-        public Boolean()
+        public string rightLabel { get; set; }
+        public YesNo()
         {
             type = "boolean";
         }
