@@ -66,6 +66,7 @@ namespace AlpacaForms.Config
             frm.form.attributes.action = header.Rows[0]["actionUrl"].ToString();
             frm.form.attributes.method = header.Rows[0]["actionType"].ToString();
 
+           
         }
 
         /// <summary>

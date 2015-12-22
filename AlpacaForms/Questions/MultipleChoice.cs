@@ -13,6 +13,7 @@ namespace AlpacaForms.Questions
     public class MultipleChoice : Base
     {
         public List<String> @enum;
+
         public MultipleChoice()
         {
             type = "string";
